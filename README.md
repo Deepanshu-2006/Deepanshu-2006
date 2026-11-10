@@ -34,11 +34,17 @@
 
 <hr>
 
-<h2>🔥 My GitHub Stats</h2>
+<h1>🔥 My Stats 🔥</h1>
+<br>
+<a href="#">
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=Deepanshu-2006&theme=dark&background=000000" alt="GitHub Streak" />
+</a>
+<br><br>
+<a href="#">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Deepanshu-2006&theme=github_dark" alt="Top Languages" />
+</a>
 
-<div align="left">
-  <img src="./cards/stats.svg?v=20261110-2119" alt="Live GitHub contribution statistics" width="100%" />
-</div>
+<hr>
 
 <div align="center">
   <sub>Built with curiosity · Improved with every commit</sub>
