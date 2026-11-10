@@ -180,31 +180,34 @@ def streak_metrics(calendar: dict) -> tuple[int, int]:
     return current, longest
 
 
-def render_stats(calendar: dict, languages: dict) -> None:
+def render_stats(calendar: dict) -> None:
     current, longest = streak_metrics(calendar)
     total = int(calendar.get("totalContributions", 0))
+    body = f"""<rect x="18" y="18" width="864" height="354" rx="10" fill="#000" stroke="#e6edf3" stroke-width="2"/>
+<line x1="300" y1="70" x2="300" y2="320" stroke="#e6edf3" stroke-width="2"/><line x1="600" y1="70" x2="600" y2="320" stroke="#e6edf3" stroke-width="2"/>
+<g class="motion" style="--delay:.2s"><text x="150" y="175" text-anchor="middle" fill="#fff" font-size="42" font-weight="700">{total:,}</text><text x="150" y="222" text-anchor="middle" fill="#fff" font-size="22">Total Contributions</text><text x="150" y="270" text-anchor="middle" fill="#9aa4ad" font-size="17">Last 12 months</text></g>
+<g class="motion" style="--delay:.4s"><circle cx="450" cy="155" r="58" fill="none" stroke="#ff9800" stroke-width="8" stroke-dasharray="340 24" transform="rotate(-90 450 155)"/><text x="450" y="173" text-anchor="middle" fill="#fff" font-size="42" font-weight="700">{current}</text><text x="450" y="222" text-anchor="middle" fill="#ff9800" font-size="22" font-weight="700">Current Streak</text><text x="450" y="270" text-anchor="middle" fill="#9aa4ad" font-size="17">Updated from GitHub</text></g>
+<g class="motion" style="--delay:.6s"><text x="750" y="175" text-anchor="middle" fill="#fff" font-size="42" font-weight="700">{longest}</text><text x="750" y="222" text-anchor="middle" fill="#fff" font-size="22">Longest Streak</text><text x="750" y="270" text-anchor="middle" fill="#9aa4ad" font-size="17">All recorded activity</text></g>"""
+    write("stats.svg", shell("GitHub contribution streak", body, 390))
+
+
+def render_languages(languages: dict) -> None:
     ordered = sorted(languages.items(), key=lambda item: item[1], reverse=True)[:5]
-    total_bytes = max(sum(value for _, value in ordered), 1)
+    total = max(sum(value for _, value in ordered), 1)
     colors = ["#3776ab", "#00bfae", "#3178c6", "#e96228", "#f34b7d"]
     radius, circumference = 82, 2 * 3.141592653589793 * 82
     segments, legend, offset = [], [], 0
     for index, ((name, value), color) in enumerate(zip(ordered, colors)):
-        length = value / total_bytes * circumference
-        segments.append(f'<circle cx="450" cy="430" r="{radius}" fill="none" stroke="{color}" stroke-width="30" stroke-dasharray="{length:.2f} {circumference-length:.2f}" stroke-dashoffset="{-offset:.2f}" transform="rotate(-90 450 430)"/>')
-        y = 356 + index * 47
-        legend.append(f'<rect x="72" y="{y-22}" width="25" height="25" rx="2" fill="{color}"/><text class="language" x="112" y="{y}">{esc(name)}</text>')
+        length = value / total * circumference
+        segments.append(f'<circle cx="620" cy="220" r="{radius}" fill="none" stroke="{color}" stroke-width="30" stroke-dasharray="{length:.2f} {circumference-length:.2f}" stroke-dashoffset="{-offset:.2f}" transform="rotate(-90 620 220)"/>')
+        y = 130 + index * 43
+        legend.append(f'<rect x="52" y="{y-19}" width="25" height="25" rx="2" fill="{color}"/><text x="92" y="{y}" fill="#83909b" font-size="20">{esc(name)}</text>')
         offset += length
-    body = f"""<rect x="0" y="0" width="900" height="650" fill="#0d1117"/>
-<rect x="12" y="12" width="876" height="250" rx="10" fill="#000" stroke="#e6edf3" stroke-width="2"/>
-<line x1="300" y1="55" x2="300" y2="220" stroke="#e6edf3" stroke-width="2"/><line x1="600" y1="55" x2="600" y2="220" stroke="#e6edf3" stroke-width="2"/>
-<g class="motion" style="--delay:.2s"><text class="stat" x="150" y="125" text-anchor="middle">{total:,}</text><text class="label" x="150" y="166" text-anchor="middle">Total Contributions</text><text class="muted" x="150" y="204" text-anchor="middle">Last 12 months</text></g>
-<g class="motion" style="--delay:.4s"><circle cx="450" cy="105" r="58" fill="none" stroke="#ff9800" stroke-width="8" stroke-dasharray="340 24" transform="rotate(-90 450 105)"/><text class="stat" x="450" y="123" text-anchor="middle">{current}</text><text class="accent-orange" x="450" y="166" text-anchor="middle">Current Streak</text><text class="muted" x="450" y="204" text-anchor="middle">Updated from GitHub</text></g>
-<g class="motion" style="--delay:.6s"><text class="stat" x="750" y="125" text-anchor="middle">{longest}</text><text class="label" x="750" y="166" text-anchor="middle">Longest Streak</text><text class="muted" x="750" y="204" text-anchor="middle">All recorded activity</text></g>
-<rect x="12" y="290" width="590" height="345" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
-<text class="language-title" x="42" y="340">Top Languages by Commit</text>
+    body = f"""<rect x="18" y="18" width="520" height="364" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+<text x="42" y="75" fill="#087de0" font-size="29">Top Languages by Commit</text>
 {''.join(legend)}
-<g class="motion" style="--delay:1s">{''.join(segments)}<circle cx="450" cy="430" r="57" fill="#0d1117"/></g>"""
-    write("stats.svg", shell("Live GitHub statistics", body, 650))
+<g class="motion" style="--delay:.5s">{''.join(segments)}<circle cx="620" cy="220" r="52" fill="#0d1117"/></g>"""
+    write("languages.svg", shell("Top Languages by Commit", body, 400))
 
 
 def render_chart(calendar: dict) -> None:
@@ -275,7 +278,8 @@ def main() -> None:
     languages = json.loads(LANGUAGES.read_text(encoding="utf-8")) if LANGUAGES.exists() else {}
     render_hero()
     render_tiles()
-    render_stats(calendar, languages)
+    render_stats(calendar)
+    render_languages(languages)
     render_chart(calendar)
     for index, repo in enumerate(FEATURED):
         render_repo(index, *repo)
