@@ -18,11 +18,11 @@
 
 <img align="right" alt="Coding animation" width="400" src="./chatgpt_feat.gif" />
 
-- 🌱 I’m currently exploring **AI products, full stack systems, and developer tooling**
-- 🧠 I enjoy building **trustworthy interfaces and reliable workflows**
-- 🛠️ My toolkit includes **TypeScript, JavaScript, React, Next.js, Node.js, Python, Go, and Rust**
+- 🌱 Exploring **AI and full stack development**
+- 🧠 Building **trustworthy interfaces**
+- 🛠️ Using **TypeScript, React, Python, Go, and Rust**
 - 📍 Based in **New Delhi, India**
-- ⚡ Fun fact: **I like turning ambitious ideas into useful products**
+- ⚡ Turning ideas into **useful products**
 
 <br clear="right" />
 
