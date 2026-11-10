@@ -1,63 +1,66 @@
 <div align="center">
-  <a href="https://github.com/Deepanshu-2006">
-    <img src="./cards/hero.svg" alt="Deepanshu Khatri — Full Stack Developer" width="900" />
+  <img src="./cards/hero.svg" alt="Deepanshu Khatri — Full Stack Developer" width="900" />
+</div>
+
+<h1 align="center">Hi 👋, I'm Deepanshu Khatri</h1>
+<h3 align="center">A full stack developer and tech enthusiast from New Delhi.</h3>
+
+<img align="right" alt="Developer workspace" width="390" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80" />
+
+<p align="left">
+  <img src="https://komarev.com/ghpvc/?username=Deepanshu-2006&label=Profile%20views&color=0e75b6&style=flat" alt="Deepanshu's profile views" />
+  <a href="https://github.com/Deepanshu-2006?tab=followers">
+    <img src="https://img.shields.io/github/followers/Deepanshu-2006?label=Followers&style=flat&color=blue" alt="GitHub followers" />
   </a>
+  <a href="https://github.com/Deepanshu-2006?tab=repositories">
+    <img src="https://img.shields.io/badge/Projects-Explore-3fb950?style=flat&logo=github&logoColor=white" alt="Explore projects" />
+  </a>
+</p>
 
-  <p>
-    <a href="https://github.com/Deepanshu-2006?tab=repositories"><img src="https://img.shields.io/badge/Projects-Explore-3fb950?style=for-the-badge&logo=github&logoColor=white" alt="Explore projects" /></a>
-    <a href="https://github.com/Deepanshu-2006?tab=followers"><img src="https://img.shields.io/github/followers/Deepanshu-2006?style=for-the-badge&label=Followers&color=a371f7" alt="GitHub followers" /></a>
-    <a href="https://github.com/Deepanshu-2006"><img src="https://komarev.com/ghpvc/?username=Deepanshu-2006&style=for-the-badge&color=58a6ff" alt="Profile views" /></a>
-  </p>
-</div>
+- 🌱 I’m currently exploring **AI products, full stack systems, and developer tooling**
+- 🧠 I enjoy building **trustworthy interfaces and reliable workflows**
+- 🛠️ My toolkit includes **TypeScript, JavaScript, React, Next.js, Node.js, Python, Go, and Rust**
+- 📍 Based in **New Delhi, India**
+- ⚡ Fun fact: **I like turning ambitious ideas into useful products**
 
-## Hey, I'm Deepanshu 👋
+<br clear="right" />
 
-I'm a **Full Stack Developer** and **tech enthusiast** from New Delhi. I enjoy turning curious ideas into useful products — from polished interfaces to reliable systems that do the hard work behind the scenes.
-
-> Building useful products at the intersection of code and curiosity.
-
-<div align="center">
-  <a href="https://github.com/Deepanshu-2006"><img src="./cards/tile-1.svg" alt="Projects — Explore the things I build" width="30%" /></a>
-  <a href="https://github.com/Deepanshu-2006"><img src="./cards/tile-2.svg" alt="Writing — Ideas, systems, and experiments" width="30%" /></a>
-  <a href="https://github.com/Deepanshu-2006"><img src="./cards/tile-3.svg" alt="Connect — Let's make something thoughtful" width="30%" /></a>
-</div>
-
-## What I like building
-
-- **Trustworthy AI experiences** with thoughtful guardrails and clear interfaces
-- **Developer tools and automation** that make engineering workflows more reliable
-- **Local-first products** that respect privacy and keep users in control
-- **Visual, useful web experiences** that make complex ideas easier to explore
-
-## Tech I work with
+<h2>🚀 Featured Projects</h2>
 
 <div align="center">
+  <a href="https://github.com/Deepanshu-2006/Guardrail-UI"><img src="./cards/repo-1.svg" alt="Guardrail-UI" width="96%" /></a>
+  <a href="https://github.com/Deepanshu-2006/Summit"><img src="./cards/repo-2.svg" alt="Summit" width="96%" /></a>
+  <a href="https://github.com/Deepanshu-2006/ContextSplit"><img src="./cards/repo-3.svg" alt="ContextSplit" width="96%" /></a>
+</div>
+
+<h2>🧰 Languages and Tools</h2>
+
+<p align="left">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,nodejs,python,go,rust,git,github,linux&perline=11" alt="TypeScript, JavaScript, React, Next.js, Node.js, Python, Go, Rust, Git, GitHub, and Linux" />
   </a>
-</div>
+</p>
 
-## Featured work
+<hr>
 
-<div align="center">
-  <a href="https://github.com/Deepanshu-2006/Guardrail-UI"><img src="./cards/repo-1.svg" alt="Guardrail-UI — TypeScript" width="96%" /></a>
-  <a href="https://github.com/Deepanshu-2006/Summit"><img src="./cards/repo-2.svg" alt="Summit — Go" width="96%" /></a>
-  <a href="https://github.com/Deepanshu-2006/ContextSplit"><img src="./cards/repo-3.svg" alt="ContextSplit — Rust" width="96%" /></a>
-  <a href="https://github.com/Deepanshu-2006/GraphMind"><img src="./cards/repo-4.svg" alt="GraphMind — TypeScript" width="96%" /></a>
-  <a href="https://github.com/Deepanshu-2006/TripWise"><img src="./cards/repo-5.svg" alt="TripWise — JavaScript" width="96%" /></a>
-</div>
-
-## GitHub rhythm
+<h2>🔥 My GitHub Stats</h2>
 
 <div align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=Deepanshu-2006&theme=dark&background=000000" alt="GitHub contribution streak" />
+  <br><br>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Deepanshu-2006&theme=github_dark" alt="Most committed languages" />
+  <br><br>
   <img src="./cards/contributions.svg" alt="Contribution rhythm over the last 12 months" width="96%" />
-  <img src="./cards/graph.svg" alt="Contribution graph" width="96%" />
 </div>
 
-## Let's connect
+<hr>
 
-If you're building something thoughtful, experimenting with a new idea, or just want to talk tech, feel free to reach out through [GitHub](https://github.com/Deepanshu-2006).
+<h2>🤝 Let’s connect</h2>
+
+<p>
+  I’m always interested in thoughtful products, interesting technical challenges, and conversations about building for the web. Visit my <a href="https://github.com/Deepanshu-2006">GitHub profile</a> to explore more.
+</p>
 
 <div align="center">
-  <sub>Designed with curiosity · Built with code · Always learning</sub>
+  <sub>Built with curiosity · Improved with every commit</sub>
 </div>
