@@ -266,11 +266,11 @@ def render_graph(calendar: dict) -> None:
 <rect x="2" y="2" width="896" height="256" rx="20" fill="#000" stroke="#e6edf3" stroke-width="4"/>
 <rect x="8" y="8" width="884" height="244" rx="16" fill="none" stroke="#16c7a2" stroke-opacity=".35" stroke-width="1"/>
 <g class="motion" style="--delay:.3s"><text class="title" x="32" y="34" font-size="22">Contribution activity</text><text class="muted" x="32" y="56">Your GitHub activity over the last year</text>
-<text class="accent" x="520" y="33" font-size="24" font-weight="700">{total:,}</text><text class="muted" x="520" y="54">contributions</text>
-<text class="accent" x="660" y="33" font-size="24" font-weight="700">{current}</text><text class="muted" x="660" y="54">current streak</text>
-<text class="accent" x="790" y="33" font-size="24" font-weight="700">{longest}</text><text class="muted" x="790" y="54">longest streak</text></g>
+<text class="accent" x="520" y="36" font-size="29" font-weight="700">{total:,}</text><text class="muted" x="520" y="58">contributions</text>
+<text class="accent" x="660" y="36" font-size="29" font-weight="700">{current}</text><text class="muted" x="660" y="58">current streak</text>
+<text class="accent" x="790" y="36" font-size="29" font-weight="700">{longest}</text><text class="muted" x="790" y="58">longest streak</text></g>
 <g class="motion" style="--delay:.8s">{''.join(cells)}</g>"""
-    write("graph-v4.svg", shell("Contribution activity graph", body, 260))
+    write("graph-v5.svg", shell("Contribution activity graph", body, 260))
 
 
 def main() -> None:
