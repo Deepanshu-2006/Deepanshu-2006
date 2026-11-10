@@ -16,6 +16,8 @@
   </a>
 </p>
 
+<img align="right" alt="Coding animation" width="400" src="./chatgpt_feat.gif" />
+
 - 🌱 I’m currently exploring **AI products, full stack systems, and developer tooling**
 - 🧠 I enjoy building **trustworthy interfaces and reliable workflows**
 - 🛠️ My toolkit includes **TypeScript, JavaScript, React, Next.js, Node.js, Python, Go, and Rust**
