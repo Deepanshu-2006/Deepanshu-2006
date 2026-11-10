@@ -17,6 +17,6 @@
 <path d="M0 184 C180 140 270 214 430 170 S700 130 900 166" fill="none" stroke="#16c7a2" stroke-opacity=".2" stroke-width="12" filter="url(#stats-glow)"/>
 <path d="M0 184 C180 140 270 214 430 170 S700 130 900 166" fill="none" stroke="url(#stats-line)" stroke-width="2" stroke-dasharray="6 10"><animate attributeName="stroke-dashoffset" from="0" to="-160" dur="7s" repeatCount="indefinite"/></path>
 <g class="motion" style="--delay:.2s"><text class="title" x="34" y="38" font-size="21">Live GitHub stats</text><text class="muted" x="34" y="60">Generated from your contribution calendar</text></g>
-<g class="motion" style="--delay:.4s"><text class="accent" x="64" y="118" font-size="38" font-weight="700">2,283</text><text class="muted" x="64" y="143">total contributions</text></g>
+<g class="motion" style="--delay:.4s"><text class="accent" x="64" y="118" font-size="38" font-weight="700">2,299</text><text class="muted" x="64" y="143">total contributions</text></g>
 <g class="motion" style="--delay:.6s"><text fill="#7cf7d4" x="350" y="118" font-size="38" font-weight="700">153</text><text class="muted" x="350" y="143">current streak</text></g>
 <g class="motion" style="--delay:.8s"><text fill="#c4a7ff" x="630" y="118" font-size="38" font-weight="700">153</text><text class="muted" x="630" y="143">longest streak</text></g></svg>
