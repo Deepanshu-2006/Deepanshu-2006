@@ -1,0 +1,36 @@
+name: Refresh profile cards
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch contribution calendar
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p .github/data
+          gh api graphql \
+            -f query='query($login:String!){user(login:$login){contributionsCollection{contributionCalendar{totalContributions weeks{contributionDays{date weekday contributionCount color}}}}}}' \
+            -f login='Deepanshu-2006' \
+            --jq '.data.user.contributionsCollection.contributionCalendar' \
+            > .github/data/contributions.json
+      - name: Install renderer dependencies
+        run: python -m pip install --quiet fonttools
+      - name: Render SVG cards
+        run: python scripts/render_profile.py
+      - name: Commit refreshed cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/data/contributions.json cards
+          git diff --cached --quiet || git commit -m "chore: refresh profile cards"
+          git push

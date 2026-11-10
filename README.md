@@ -1,16 +1,25 @@
-## Hi there 👋
+<p align="center">
+  <img src="./cards/hero.svg" width="100%" alt="Deepanshu Khatri — Full Stack Developer">
+</p>
 
-<!--
-**Deepanshu-2006/Deepanshu-2006** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<p align="center">
+  <a href="https://github.com/Deepanshu-2006?tab=repositories"><img src="./cards/tile-1.svg" width="32.5%" alt="Projects"></a>
+  <a href="https://github.com/Deepanshu-2006"><img src="./cards/tile-2.svg" width="32.5%" alt="Writing"></a>
+  <a href="https://github.com/Deepanshu-2006"><img src="./cards/tile-3.svg" width="32.5%" alt="Connect"></a>
+</p>
 
-Here are some ideas to get you started:
+<p align="center">
+  <img src="./cards/contributions.svg" width="100%" alt="Contribution rhythm">
+</p>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<p align="center">
+  <img src="./cards/graph.svg" width="100%" alt="Contribution graph">
+</p>
+
+<p align="center">
+  <a href="https://github.com/Deepanshu-2006/Guardrail-UI"><img src="./cards/repo-1.svg" width="100%" alt="Guardrail-UI"></a>
+  <a href="https://github.com/Deepanshu-2006/Summit"><img src="./cards/repo-2.svg" width="100%" alt="Summit"></a>
+  <a href="https://github.com/Deepanshu-2006/ContextSplit"><img src="./cards/repo-3.svg" width="100%" alt="ContextSplit"></a>
+  <a href="https://github.com/Deepanshu-2006/GraphMind"><img src="./cards/repo-4.svg" width="100%" alt="GraphMind"></a>
+  <a href="https://github.com/Deepanshu-2006/TripWise"><img src="./cards/repo-5.svg" width="100%" alt="TripWise"></a>
+</p>
