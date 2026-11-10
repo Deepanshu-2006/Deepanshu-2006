@@ -200,12 +200,27 @@ def render_graph(calendar: dict) -> None:
             weekday = int(day.get("weekday", 0))
             count = day.get("contributionCount", 0)
             level = min(4, count // 3 + (1 if count else 0))
-            fill = ["#21262d", "#0e4429", "#006d32", "#26a641", GREEN][level]
-            x, y = 34 + week_index * 15, 28 + weekday * 15
-            cells.append(f'<rect x="{x}" y="{y}" width="10" height="10" rx="2" fill="{fill}"/>')
-    body = f"""{rect(0, 0, 900, 150)}
-<g class="motion" style="--delay:2.8s"><text class="title" x="32" y="22" font-size="18">The green keeps growing</text>{''.join(cells)}</g>"""
-    write("graph.svg", shell("Contribution graph", body, 150))
+            fill = ["#172033", "#123d4a", "#087f8b", "#16c7a2", "#7cf7d4"][level]
+            x, y = 40 + week_index * 15, 58 + weekday * 15
+            delay = (week_index * 0.035 + weekday * 0.02) % 1.8
+            opacity = 0.45 + level * 0.12
+            cells.append(
+                f'<rect x="{x}" y="{y}" width="10" height="10" rx="3" fill="{fill}" opacity="{opacity:.2f}">' 
+                f'<animate attributeName="opacity" values="{opacity:.2f};1;{opacity:.2f}" dur="3.8s" begin="{delay:.2f}s" repeatCount="indefinite"/>'
+                f'<animateTransform attributeName="transform" type="scale" values="1;1.12;1" dur="3.8s" begin="{delay:.2f}s" repeatCount="indefinite" additive="sum"/>'
+                '</rect>'
+            )
+    body = f"""<defs>
+<linearGradient id="graph-gradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0d1828"/><stop offset="55%" stop-color="#111d2b"/><stop offset="100%" stop-color="#102d32"/></linearGradient>
+<radialGradient id="graph-glow"><stop offset="0%" stop-color="#16c7a2" stop-opacity=".26"/><stop offset="100%" stop-color="#16c7a2" stop-opacity="0"/></radialGradient>
+<filter id="soft-glow"><feGaussianBlur stdDeviation="8"/></filter>
+</defs>
+<rect x="0" y="0" width="900" height="190" rx="18" fill="url(#graph-gradient)" stroke="{BORDER}"/>
+<circle cx="770" cy="104" r="130" fill="url(#graph-glow)" filter="url(#soft-glow)"><animate attributeName="r" values="110;145;110" dur="7s" repeatCount="indefinite"/></circle>
+<g class="motion" style="--delay:2.8s"><text class="title" x="32" y="32" font-size="20">Contribution constellation</text><text class="muted" x="32" y="51">Every commit adds another point of light</text>
+<path d="M40 166 C180 138 250 177 370 145 S600 128 860 153" fill="none" stroke="#16c7a2" stroke-opacity=".32" stroke-width="2" stroke-dasharray="5 9"><animate attributeName="stroke-dashoffset" from="0" to="-140" dur="8s" repeatCount="indefinite"/></path>
+{''.join(cells)}</g>"""
+    write("graph.svg", shell("Contribution constellation", body, 190))
 
 
 def main() -> None:
