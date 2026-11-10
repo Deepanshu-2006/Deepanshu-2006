@@ -269,7 +269,7 @@ def render_graph(calendar: dict) -> None:
 <text class="accent" x="660" y="33" font-size="24" font-weight="700">{current}</text><text class="muted" x="660" y="54">current streak</text>
 <text class="accent" x="790" y="33" font-size="24" font-weight="700">{longest}</text><text class="muted" x="790" y="54">longest streak</text></g>
 <g class="motion" style="--delay:.8s">{''.join(cells)}</g>"""
-    write("graph-v2.svg", shell("Contribution activity graph", body, 260))
+    write("graph-v3.svg", shell("Contribution activity graph", body, 260))
 
 
 def main() -> None:
