@@ -36,7 +36,7 @@
 
 <h2>🔥 My GitHub Stats</h2>
 
-<div align="center">
+<div align="left">
   <img src="https://github-readme-streak-stats.herokuapp.com?user=Deepanshu-2006&theme=dark&background=000000" alt="GitHub contribution streak" />
   <br><br>
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Deepanshu-2006&theme=github_dark" alt="Most committed languages" />
