@@ -244,6 +244,8 @@ def render_repo(index: int, name: str, description: str, language: str) -> None:
 
 
 def render_graph(calendar: dict) -> None:
+    current, longest = streak_metrics(calendar)
+    total = int(calendar.get("totalContributions", 0))
     cells = []
     for week_index, week in enumerate(calendar.get("weeks", [])[-53:]):
         for day in week.get("contributionDays", []):
@@ -251,13 +253,12 @@ def render_graph(calendar: dict) -> None:
             count = day.get("contributionCount", 0)
             level = min(4, count // 3 + (1 if count else 0))
             fill = ["#172033", "#123d4a", "#087f8b", "#16c7a2", "#7cf7d4"][level]
-            x, y = 40 + week_index * 15, 58 + weekday * 15
+            x, y = 40 + week_index * 15, 126 + weekday * 15
             delay = (week_index * 0.035 + weekday * 0.02) % 1.8
             opacity = 0.45 + level * 0.12
             cells.append(
                 f'<rect x="{x}" y="{y}" width="10" height="10" rx="3" fill="{fill}" opacity="{opacity:.2f}">' 
                 f'<animate attributeName="opacity" values="{opacity:.2f};1;{opacity:.2f}" dur="3.8s" begin="{delay:.2f}s" repeatCount="indefinite"/>'
-                f'<animateTransform attributeName="transform" type="scale" values="1;1.12;1" dur="3.8s" begin="{delay:.2f}s" repeatCount="indefinite" additive="sum"/>'
                 '</rect>'
             )
     body = f"""<defs>
@@ -265,12 +266,15 @@ def render_graph(calendar: dict) -> None:
 <radialGradient id="graph-glow"><stop offset="0%" stop-color="#16c7a2" stop-opacity=".26"/><stop offset="100%" stop-color="#16c7a2" stop-opacity="0"/></radialGradient>
 <filter id="soft-glow"><feGaussianBlur stdDeviation="8"/></filter>
 </defs>
-<rect x="0" y="0" width="900" height="190" rx="18" fill="url(#graph-gradient)" stroke="{BORDER}"/>
-<circle cx="770" cy="104" r="130" fill="url(#graph-glow)" filter="url(#soft-glow)"><animate attributeName="r" values="110;145;110" dur="7s" repeatCount="indefinite"/></circle>
-<g class="motion" style="--delay:2.8s"><text class="title" x="32" y="32" font-size="20">Contribution constellation</text><text class="muted" x="32" y="51">Every commit adds another point of light</text>
-<path d="M40 166 C180 138 250 177 370 145 S600 128 860 153" fill="none" stroke="#16c7a2" stroke-opacity=".32" stroke-width="2" stroke-dasharray="5 9"><animate attributeName="stroke-dashoffset" from="0" to="-140" dur="8s" repeatCount="indefinite"/></path>
+<rect x="0" y="0" width="900" height="260" rx="18" fill="url(#graph-gradient)" stroke="{BORDER}"/>
+<circle cx="790" cy="135" r="130" fill="url(#graph-glow)" filter="url(#soft-glow)"><animate attributeName="r" values="110;145;110" dur="7s" repeatCount="indefinite"/></circle>
+<g class="motion" style="--delay:.3s"><text class="title" x="32" y="34" font-size="22">Contribution activity</text><text class="muted" x="32" y="56">Your GitHub activity over the last year</text>
+<text class="accent" x="520" y="33" font-size="24" font-weight="700">{total:,}</text><text class="muted" x="520" y="54">contributions</text>
+<text class="accent" x="660" y="33" font-size="24" font-weight="700">{current}</text><text class="muted" x="660" y="54">current streak</text>
+<text class="accent" x="790" y="33" font-size="24" font-weight="700">{longest}</text><text class="muted" x="790" y="54">longest streak</text></g>
+<g class="motion" style="--delay:.8s"><path d="M40 236 C180 208 250 247 370 215 S600 198 860 223" fill="none" stroke="#16c7a2" stroke-opacity=".32" stroke-width="2" stroke-dasharray="5 9"><animate attributeName="stroke-dashoffset" from="0" to="-140" dur="8s" repeatCount="indefinite"/></path>
 {''.join(cells)}</g>"""
-    write("graph.svg", shell("Contribution constellation", body, 190))
+    write("graph-v2.svg", shell("Contribution activity graph", body, 260))
 
 
 def main() -> None:
@@ -278,8 +282,6 @@ def main() -> None:
     languages = json.loads(LANGUAGES.read_text(encoding="utf-8")) if LANGUAGES.exists() else {}
     render_hero()
     render_tiles()
-    render_stats(calendar)
-    render_languages(languages)
     render_chart(calendar)
     for index, repo in enumerate(FEATURED):
         render_repo(index, *repo)
