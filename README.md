@@ -39,11 +39,7 @@
 <h1>🔥 My Stats 🔥</h1>
 <br>
 <a href="#">
-  <img src="./cards/stats-v2.svg" alt="GitHub Streak" width="72%" />
-</a>
-<br><br>
-<a href="#">
-  <img src="./cards/languages-v2.svg" alt="Top Languages" width="42%" />
+  <img src="./cards/graph-v2.svg" alt="Animated GitHub contribution graph with total contributions and streaks" width="82%" />
 </a>
 
 <hr>
