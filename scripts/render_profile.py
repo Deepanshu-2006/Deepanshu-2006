@@ -262,18 +262,13 @@ def render_graph(calendar: dict) -> None:
                 '</rect>'
             )
     body = f"""<defs>
-<linearGradient id="graph-gradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0d1828"/><stop offset="55%" stop-color="#111d2b"/><stop offset="100%" stop-color="#102d32"/></linearGradient>
-<radialGradient id="graph-glow"><stop offset="0%" stop-color="#16c7a2" stop-opacity=".26"/><stop offset="100%" stop-color="#16c7a2" stop-opacity="0"/></radialGradient>
-<filter id="soft-glow"><feGaussianBlur stdDeviation="8"/></filter>
 </defs>
-<rect x="0" y="0" width="900" height="260" rx="18" fill="url(#graph-gradient)" stroke="{BORDER}"/>
-<circle cx="790" cy="135" r="130" fill="url(#graph-glow)" filter="url(#soft-glow)"><animate attributeName="r" values="110;145;110" dur="7s" repeatCount="indefinite"/></circle>
+<rect x="0" y="0" width="900" height="260" rx="18" fill="#000" stroke="{BORDER}"/>
 <g class="motion" style="--delay:.3s"><text class="title" x="32" y="34" font-size="22">Contribution activity</text><text class="muted" x="32" y="56">Your GitHub activity over the last year</text>
 <text class="accent" x="520" y="33" font-size="24" font-weight="700">{total:,}</text><text class="muted" x="520" y="54">contributions</text>
 <text class="accent" x="660" y="33" font-size="24" font-weight="700">{current}</text><text class="muted" x="660" y="54">current streak</text>
 <text class="accent" x="790" y="33" font-size="24" font-weight="700">{longest}</text><text class="muted" x="790" y="54">longest streak</text></g>
-<g class="motion" style="--delay:.8s"><path d="M40 236 C180 208 250 247 370 215 S600 198 860 223" fill="none" stroke="#16c7a2" stroke-opacity=".32" stroke-width="2" stroke-dasharray="5 9"><animate attributeName="stroke-dashoffset" from="0" to="-140" dur="8s" repeatCount="indefinite"/></path>
-{''.join(cells)}</g>"""
+<g class="motion" style="--delay:.8s">{''.join(cells)}</g>"""
     write("graph-v2.svg", shell("Contribution activity graph", body, 260))
 
 
