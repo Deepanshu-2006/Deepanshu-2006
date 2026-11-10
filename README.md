@@ -39,11 +39,11 @@
 <h1>🔥 My Stats 🔥</h1>
 <br>
 <a href="#">
-  <img src="https://streak-stats.demolab.com?user=Deepanshu-2006&theme=dark&background=000000" alt="GitHub Streak" />
+  <img src="./cards/stats.svg?v=20261110-2128" alt="GitHub Streak" width="100%" />
 </a>
 <br><br>
 <a href="#">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Deepanshu-2006&theme=github_dark" alt="Top Languages" />
+  <img src="./cards/languages.svg?v=20261110-2128" alt="Top Languages" width="100%" />
 </a>
 
 <hr>
