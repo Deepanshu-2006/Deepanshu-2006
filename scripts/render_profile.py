@@ -186,7 +186,7 @@ def render_stats(calendar: dict) -> None:
     body = f"""<rect x="18" y="18" width="864" height="354" rx="10" fill="#000" stroke="#e6edf3" stroke-width="2"/>
 <line x1="300" y1="70" x2="300" y2="320" stroke="#e6edf3" stroke-width="2"/><line x1="600" y1="70" x2="600" y2="320" stroke="#e6edf3" stroke-width="2"/>
 <g class="motion" style="--delay:.2s"><text x="150" y="175" text-anchor="middle" fill="#fff" font-size="42" font-weight="700">{total:,}</text><text x="150" y="222" text-anchor="middle" fill="#fff" font-size="22">Total Contributions</text><text x="150" y="270" text-anchor="middle" fill="#9aa4ad" font-size="17">Last 12 months</text></g>
-<g class="motion" style="--delay:.4s"><circle cx="450" cy="155" r="58" fill="none" stroke="#ff9800" stroke-width="8" stroke-dasharray="340 24" transform="rotate(-90 450 155)"/><text x="450" y="173" text-anchor="middle" fill="#fff" font-size="42" font-weight="700">{current}</text><text x="450" y="222" text-anchor="middle" fill="#ff9800" font-size="22" font-weight="700">Current Streak</text><text x="450" y="270" text-anchor="middle" fill="#9aa4ad" font-size="17">Updated from GitHub</text></g>
+<g class="motion" style="--delay:.4s"><circle cx="450" cy="135" r="52" fill="none" stroke="#ff9800" stroke-width="8" stroke-dasharray="340 24" transform="rotate(-90 450 135)"/><text x="450" y="151" text-anchor="middle" fill="#fff" font-size="42" font-weight="700">{current}</text><text x="450" y="210" text-anchor="middle" fill="#ff9800" font-size="22" font-weight="700">Current Streak</text><text x="450" y="252" text-anchor="middle" fill="#9aa4ad" font-size="17">Updated from GitHub</text></g>
 <g class="motion" style="--delay:.6s"><text x="750" y="175" text-anchor="middle" fill="#fff" font-size="42" font-weight="700">{longest}</text><text x="750" y="222" text-anchor="middle" fill="#fff" font-size="22">Longest Streak</text><text x="750" y="270" text-anchor="middle" fill="#9aa4ad" font-size="17">All recorded activity</text></g>"""
     write("stats.svg", shell("GitHub contribution streak", body, 390))
 
@@ -199,14 +199,14 @@ def render_languages(languages: dict) -> None:
     segments, legend, offset = [], [], 0
     for index, ((name, value), color) in enumerate(zip(ordered, colors)):
         length = value / total * circumference
-        segments.append(f'<circle cx="620" cy="220" r="{radius}" fill="none" stroke="{color}" stroke-width="30" stroke-dasharray="{length:.2f} {circumference-length:.2f}" stroke-dashoffset="{-offset:.2f}" transform="rotate(-90 620 220)"/>')
+        segments.append(f'<circle cx="620" cy="220" r="{radius}" fill="none" stroke="{color}" stroke-width="30" stroke-dasharray="{length:.2f} {circumference-length:.2f}" stroke-dashoffset="{-offset:.2f}" transform="rotate(-90 395 220)"/>')
         y = 130 + index * 43
         legend.append(f'<rect x="52" y="{y-19}" width="25" height="25" rx="2" fill="{color}"/><text x="92" y="{y}" fill="#83909b" font-size="20">{esc(name)}</text>')
         offset += length
     body = f"""<rect x="18" y="18" width="520" height="364" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
 <text x="42" y="75" fill="#087de0" font-size="29">Top Languages by Commit</text>
 {''.join(legend)}
-<g class="motion" style="--delay:.5s">{''.join(segments)}<circle cx="620" cy="220" r="52" fill="#0d1117"/></g>"""
+<g class="motion" style="--delay:.5s">{''.join(segments)}<circle cx="395" cy="220" r="52" fill="#0d1117"/></g>"""
     write("languages.svg", shell("Top Languages by Commit", body, 400))
 
 
