@@ -160,6 +160,43 @@ def contribution_stats(calendar: dict) -> tuple[list[dict], int, int, str]:
     return ordered, active, streak, busiest.get("date", "—")
 
 
+def streak_metrics(calendar: dict) -> tuple[int, int]:
+    days = [d for week in calendar.get("weeks", []) for d in week.get("contributionDays", [])]
+    current = 0
+    for item in reversed(days):
+        if item.get("contributionCount", 0) > 0:
+            current += 1
+        else:
+            break
+    longest = 0
+    run = 0
+    for item in days:
+        if item.get("contributionCount", 0) > 0:
+            run += 1
+            longest = max(longest, run)
+        else:
+            run = 0
+    return current, longest
+
+
+def render_stats(calendar: dict) -> None:
+    current, longest = streak_metrics(calendar)
+    total = int(calendar.get("totalContributions", 0))
+    body = f"""<defs>
+<linearGradient id="stats-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0b1220"/><stop offset="100%" stop-color="#171126"/></linearGradient>
+<linearGradient id="stats-line" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#16c7a2"/><stop offset="50%" stop-color="#7cf7d4"/><stop offset="100%" stop-color="#a371f7"/></linearGradient>
+<filter id="stats-glow"><feGaussianBlur stdDeviation="6"/></filter>
+</defs>
+<rect x="0" y="0" width="900" height="220" rx="18" fill="url(#stats-bg)" stroke="{BORDER}"/>
+<path d="M0 184 C180 140 270 214 430 170 S700 130 900 166" fill="none" stroke="#16c7a2" stroke-opacity=".2" stroke-width="12" filter="url(#stats-glow)"/>
+<path d="M0 184 C180 140 270 214 430 170 S700 130 900 166" fill="none" stroke="url(#stats-line)" stroke-width="2" stroke-dasharray="6 10"><animate attributeName="stroke-dashoffset" from="0" to="-160" dur="7s" repeatCount="indefinite"/></path>
+<g class="motion" style="--delay:.2s"><text class="title" x="34" y="38" font-size="21">Live GitHub stats</text><text class="muted" x="34" y="60">Generated from your contribution calendar</text></g>
+<g class="motion" style="--delay:.4s"><text class="accent" x="64" y="118" font-size="38" font-weight="700">{total:,}</text><text class="muted" x="64" y="143">total contributions</text></g>
+<g class="motion" style="--delay:.6s"><text fill="#7cf7d4" x="350" y="118" font-size="38" font-weight="700">{current}</text><text class="muted" x="350" y="143">current streak</text></g>
+<g class="motion" style="--delay:.8s"><text fill="#c4a7ff" x="630" y="118" font-size="38" font-weight="700">{longest}</text><text class="muted" x="630" y="143">longest streak</text></g>"""
+    write("stats.svg", shell("Live GitHub statistics", body, 220))
+
+
 def render_chart(calendar: dict) -> None:
     months, active, streak, busiest = contribution_stats(calendar)
     max_value = max((item["value"] for item in months), default=1)
@@ -227,6 +264,7 @@ def main() -> None:
     calendar = json.loads(DATA.read_text(encoding="utf-8")) if DATA.exists() else {"weeks": []}
     render_hero()
     render_tiles()
+    render_stats(calendar)
     render_chart(calendar)
     for index, repo in enumerate(FEATURED):
         render_repo(index, *repo)
