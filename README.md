@@ -1,11 +1,10 @@
 <div align="center">
-  <img src="./cards/hero.svg" alt="Deepanshu Khatri — Full Stack Developer" width="900" />
+  <img src="./init.gif" alt="Animated developer introduction" width="100%" />
 </div>
 
 <h1 align="center">Hi 👋, I'm Deepanshu Khatri</h1>
 <h3 align="center">A full stack developer and tech enthusiast from New Delhi.</h3>
 
-<img align="right" alt="Developer workspace" width="390" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80" />
 
 <p align="left">
   <img src="https://komarev.com/ghpvc/?username=Deepanshu-2006&label=Profile%20views&color=0e75b6&style=flat" alt="Deepanshu's profile views" />
