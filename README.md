@@ -37,7 +37,7 @@
 <h1>🔥 My Stats 🔥</h1>
 <br>
 <a href="#">
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=Deepanshu-2006&theme=dark&background=000000" alt="GitHub Streak" />
+  <img src="https://streak-stats.demolab.com?user=Deepanshu-2006&theme=dark&background=000000" alt="GitHub Streak" />
 </a>
 <br><br>
 <a href="#">
