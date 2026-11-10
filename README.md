@@ -39,11 +39,11 @@
 <h1>🔥 My Stats 🔥</h1>
 <br>
 <a href="#">
-  <img src="./cards/stats.svg?v=20261110-2129" alt="GitHub Streak" width="72%" />
+  <img src="./cards/stats.svg?v=20261110-2130" alt="GitHub Streak" width="72%" />
 </a>
 <br><br>
 <a href="#">
-  <img src="./cards/languages.svg?v=20261110-2129" alt="Top Languages" width="42%" />
+  <img src="./cards/languages.svg?v=20261110-2130" alt="Top Languages" width="42%" />
 </a>
 
 <hr>
