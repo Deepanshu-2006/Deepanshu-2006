@@ -24,14 +24,6 @@
 
 <br clear="right" />
 
-<h2>🚀 Featured Projects</h2>
-
-<div align="center">
-  <a href="https://github.com/Deepanshu-2006/Guardrail-UI"><img src="./cards/repo-1.svg" alt="Guardrail-UI" width="96%" /></a>
-  <a href="https://github.com/Deepanshu-2006/Summit"><img src="./cards/repo-2.svg" alt="Summit" width="96%" /></a>
-  <a href="https://github.com/Deepanshu-2006/ContextSplit"><img src="./cards/repo-3.svg" alt="ContextSplit" width="96%" /></a>
-</div>
-
 <h2>🧰 Languages and Tools</h2>
 
 <p align="left">
@@ -51,14 +43,6 @@
   <br><br>
   <img src="./cards/contributions.svg" alt="Contribution rhythm over the last 12 months" width="96%" />
 </div>
-
-<hr>
-
-<h2>🤝 Let’s connect</h2>
-
-<p>
-  I’m always interested in thoughtful products, interesting technical challenges, and conversations about building for the web. Visit my <a href="https://github.com/Deepanshu-2006">GitHub profile</a> to explore more.
-</p>
 
 <div align="center">
   <sub>Built with curiosity · Improved with every commit</sub>
