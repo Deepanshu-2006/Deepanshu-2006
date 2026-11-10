@@ -28,7 +28,7 @@ PANEL = "#161b22"
 BORDER = "#30363d"
 TEXT = "#f0f6fc"
 MUTED = "#8b949e"
-GREEN = "#d946ef"
+GREEN = "#60a5fa"
 GREEN_DARK = "#1f6f3a"
 PURPLE = "#a371f7"
 
@@ -252,7 +252,7 @@ def render_graph(calendar: dict) -> None:
             weekday = int(day.get("weekday", 0))
             count = day.get("contributionCount", 0)
             level = min(4, count // 3 + (1 if count else 0))
-            fill = ["#171326", "#32164f", "#68258f", "#b832c4", "#f0a3ff"][level]
+            fill = ["#101827", "#172b4d", "#24558a", "#3b82c4", "#60a5fa"][level]
             x, y = 40 + week_index * 15, 126 + weekday * 15
             delay = 0.35 + week_index * 0.035 + weekday * 0.02
             opacity = 0.45 + level * 0.12
@@ -264,13 +264,13 @@ def render_graph(calendar: dict) -> None:
     body = f"""<defs>
 </defs>
 <rect x="2" y="2" width="896" height="256" rx="20" fill="#000" stroke="#e6edf3" stroke-width="2"/>
-<rect x="7" y="7" width="886" height="246" rx="17" fill="none" stroke="#d946ef" stroke-opacity=".35" stroke-width="1"/>
+<rect x="7" y="7" width="886" height="246" rx="17" fill="none" stroke="#60a5fa" stroke-opacity=".35" stroke-width="1"/>
 <g class="motion" style="--delay:.3s"><text class="title" x="32" y="34" font-size="22">Contribution activity</text><text class="muted" x="32" y="56">Your GitHub activity over the last year</text>
 <text class="accent" x="520" y="36" font-size="29" font-weight="700">{total:,}</text><text class="muted" x="520" y="58">contributions</text>
 <text class="accent" x="660" y="36" font-size="29" font-weight="700">{current}</text><text class="muted" x="660" y="58">current streak</text>
 <text class="accent" x="790" y="36" font-size="29" font-weight="700">{longest}</text><text class="muted" x="790" y="58">longest streak</text></g>
 <g class="motion" style="--delay:.8s">{''.join(cells)}</g>"""
-    write("graph-v6.svg", shell("Contribution activity graph", body, 260))
+    write("graph-v7.svg", shell("Contribution activity graph", body, 260))
 
 
 def main() -> None:
