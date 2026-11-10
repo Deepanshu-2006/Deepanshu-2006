@@ -37,7 +37,7 @@
 <h2>🔥 My GitHub Stats</h2>
 
 <div align="left">
-  <img src="./cards/stats.svg" alt="Live GitHub contribution statistics" width="100%" />
+  <img src="./cards/stats.svg?v=20261110-2119" alt="Live GitHub contribution statistics" width="100%" />
 </div>
 
 <div align="center">
