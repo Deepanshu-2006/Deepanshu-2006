@@ -39,7 +39,7 @@
 <h1>🔥 My Stats 🔥</h1>
 <br>
 <a href="#">
-  <img src="./cards/graph-v2.svg" alt="Animated GitHub contribution graph with total contributions and streaks" width="82%" />
+  <img src="./cards/graph-v3.svg" alt="Animated GitHub contribution graph with total contributions and streaks" width="82%" />
 </a>
 
 <hr>
