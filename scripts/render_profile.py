@@ -254,11 +254,11 @@ def render_graph(calendar: dict) -> None:
             level = min(4, count // 3 + (1 if count else 0))
             fill = ["#172033", "#123d4a", "#087f8b", "#16c7a2", "#7cf7d4"][level]
             x, y = 40 + week_index * 15, 126 + weekday * 15
-            delay = (week_index * 0.035 + weekday * 0.02) % 1.8
+            delay = 0.35 + week_index * 0.035 + weekday * 0.02
             opacity = 0.45 + level * 0.12
             cells.append(
-                f'<rect x="{x}" y="{y}" width="10" height="10" rx="3" fill="{fill}" opacity="{opacity:.2f}">' 
-                f'<animate attributeName="opacity" values="{opacity:.2f};1;{opacity:.2f}" dur="3.8s" begin="{delay:.2f}s" repeatCount="indefinite"/>'
+                f'<rect x="{x}" y="{y}" width="10" height="10" rx="3" fill="{fill}" opacity="0">'
+                f'<animate attributeName="opacity" from="0" to="{opacity:.2f}" dur=".45s" begin="{delay:.2f}s" fill="freeze"/>'
                 '</rect>'
             )
     body = f"""<defs>
@@ -269,7 +269,7 @@ def render_graph(calendar: dict) -> None:
 <text class="accent" x="660" y="33" font-size="24" font-weight="700">{current}</text><text class="muted" x="660" y="54">current streak</text>
 <text class="accent" x="790" y="33" font-size="24" font-weight="700">{longest}</text><text class="muted" x="790" y="54">longest streak</text></g>
 <g class="motion" style="--delay:.8s">{''.join(cells)}</g>"""
-    write("graph-v3.svg", shell("Contribution activity graph", body, 260))
+    write("graph-v4.svg", shell("Contribution activity graph", body, 260))
 
 
 def main() -> None:
